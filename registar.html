@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro do Aluno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success p-4 fixed-top">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><i class="bi bi-house"></i> Home</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="registar.html"><i class="bi bi-speedometer2"></i> T1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tabela.html"><i class="bi bi-speedometer2"></i> T2</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     <div class="d-flex">
+        <div class="bg-secondary text-white p-3" id="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link text-white" href="#">1º Trimestre</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">2º Trimestre</a></li>
+            <li class="nav-item"><a class="nav-link active text-white" href="trmestre.html">3º Trimestre</a></li>
+        </ul>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <main class="p-4 flex-grow-1" id="conteudo">
+            <h2>Cadastro do Aluno</h2>
+            <form id="alunoForm" class="bg-light p-4 rounded shadow">
+                <div class="mb-3"><label class="form-label">Nome</label><input type="text" class="form-control" id="nome" required></div>
+                <div class="mb-3"><label class="form-label">Número</label><input type="text" class="form-control" id="numeroAluno" required></div>
+                <div class="mb-3"><label class="form-label">Sala</label><input type="text" class="form-control" id="numeroSala" required></div>
+                <div class="mb-3"><label class="form-label">Turma</label><input type="text" class="form-control" id="turma" required></div>
+                <div class="mb-3"><label class="form-label">Disciplina</label><input type="text" class="form-control" id="disciplina" required></div>
+                <div class="mb-3"><label class="form-label">Nota 1</label><input type="number" class="form-control" id="nota1" required></div>
+                <div class="mb-3"><label class="form-label">Nota 2</label><input type="number" class="form-control" id="nota2" required></div>
+                <div class="mb-3"><label class="form-label">Nota 3</label><input type="number" class="form-control" id="nota3" required></div>
+                <button type="submit" class="btn btn-success">Salvar</button>
+            </form>
+        </main>
+    </div>
+    
+  <script>
+        document.getElementById("alunoForm").addEventListener("submit", function(e){
+        e.preventDefault();
+        const aluno = {
+            nome: nome.value,
+            numeroAluno: numeroAluno.value,
+            numeroSala: numeroSala.value,
+            turma: turma.value,
+            disciplina: disciplina.value,
+            nota1: parseFloat(nota1.value),
+            nota2: parseFloat(nota2.value),
+            nota3: parseFloat(nota3.value)
+        };
+        localStorage.setItem("aluno", JSON.stringify(aluno));
+        window.location.href = "tabela.html";
+
+            // Recupera lista existente ou cria nova
+        let alunos = JSON.parse(localStorage.getItem("alunos")) || [];
+        alunos.push(aluno);
+
+        // Salva lista atualizada
+        localStorage.setItem("alunos", JSON.stringify(alunos));
+
+        window.location.href = "tabela.html";
+  });
+  </script>
+</body>
+</html>
