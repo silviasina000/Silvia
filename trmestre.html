@@ -1,44 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Gestor de tarefa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Gestor de Tarefa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <style>
+    /* Sidebar ocupa toda altura */
+    #sidebar {
+      width: 220px;
+      min-height: 100vh;
+    }
+
+    /* Links da sidebar */
+    #sidebar .nav-link {
+      padding: 10px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    #sidebar .nav-link:hover {
+      background-color: #198754;
+    }
+
+    #sidebar .nav-link.active {
+      background-color: #145c32;
+      font-weight: bold;
+    }
+
+    /* Ajuste mobile */
+    @media (max-width: 768px) {
+      #sidebar {
+        display: none;
+      }
+    }
+
+    /* Espaço abaixo da navbar fixa */
+    body {
+      padding-top: 80px;
+      background: #f5f7fa;
+    }
+
+    /* Conteúdo principal */
+    #conteudo {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #145c32;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar fixa -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success p-4 fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand active" href="index.html"><i class="bi bi-house"></i> Home</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="registar.html"><i class="bi bi-speedometer2"></i> T1</a></li>
-                <li class="nav-item"><a class="nav-link" href="tabela.html"><i class="bi bi-speedometer2"></i> T2</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Sidebar fixa -->
-    <div class="d-flex">
-        <div class="bg-secondary text-white p-3" id="sidebar">
-        <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link text-white" href="#">1º Trimestre</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#">2º Trimestre</a></li>
-            <li class="nav-item"><a class="nav-link active text-white" href="trmestre.html">3º Trimestre</a></li>
+  <!-- Navbar fixa -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success p-3 fixed-top shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand active" href="index.html"><i class="bi bi-house"></i> Home</a>
+      <!-- Botão hamburguer -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="registar.html"><i class="bi bi-speedometer2"></i> T1</a></li>
+          <li class="nav-item"><a class="nav-link" href="tabela.html"><i class="bi bi-speedometer2"></i> T2</a></li>
         </ul>
-        </div>
-
-        <!-- Conteúdo principal -->
-        <main class="p-4 flex-grow-1" id="conteudo">
-        <h2>Bem-vindo ao Sistema Escolar</h2>
-        <p>
-           <i class="bi bi-brush-fill"></i> Agora estas no terceiro trimestre
-        </p>
-        <p>Use o menu para navegar entre cadastro e classificação dos alunos.</p>
-        </main>
+      </div>
     </div>
+  </nav>
+
+  <!-- Layout principal -->
+  <div class="d-flex">
+    <!-- Sidebar responsiva -->
+    <div class="bg-secondary text-white p-3 d-none d-md-block" id="sidebar">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link text-white" href="#">1º Trimestre</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">2º Trimestre</a></li>
+        <li class="nav-item"><a class="nav-link active text-white" href="trmestre.html">3º Trimestre</a></li>
+      </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <main class="p-4 flex-grow-1" id="conteudo">
+      <h2>Gestor de Tarefa</h2>
+      <p><i class="bi bi-brush-fill text-success"></i> Agora estás no terceiro trimestre</p>
+      <p>Use o menu para navegar entre cadastro e classificação dos alunos.</p>
+    </main>
+  </div>
+
+  <!-- Scripts Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
