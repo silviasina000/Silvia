@@ -44,3 +44,32 @@ main{
   overflow-y: auto;
   height: calc(100vh - 70px);
 }
+
+/* Sidebar ocupa toda altura */
+#sidebar {
+  width: 220px;
+  min-height: 100vh;
+}
+
+/* Links da sidebar */
+#sidebar .nav-link {
+  padding: 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+#sidebar .nav-link:hover {
+  background-color: #198754;
+}
+
+#sidebar .nav-link.active {
+  background-color: #145c32;
+  font-weight: bold;
+}
+
+/* Ajuste mobile */
+@media (max-width: 768px) {
+  #sidebar {
+    display: none;
+  }
+}
